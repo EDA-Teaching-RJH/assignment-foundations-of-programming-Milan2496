@@ -69,19 +69,17 @@ def remove_members(n, r, d, id):
 
 
 def update_rank(n, r, id):
-    CrewID = input("What is the ID of the Crew Member who's rank needs updating:")
-
+    CrewID = input("What is the ID of the Crew Member who's rank needs updating: ")
     while CrewID not in id:
-        CrewID = input("Incorrect ID. What is the ID of the Crew Member who's rank needs updating:")
-
-    
+        CrewID = input("Incorrect ID. What is the ID of the Crew Member who's rank needs updating: ")
     idx = id.index(CrewID)
-    new_rank = input("What is the updated rank")
+    new_rank = input("What is the updated rank: ")
     r[idx] = new_rank
-
-
-
-    
+    print("Rank updated")
+    print("\nUpdated Crew List:")
+    for i in range(len(n)):
+            print( n[i] + " - " + r[i] + " - " + d[i] + " - " + id[i])
+    return n, r, d, id
 
 
 def count_officers(r):
@@ -91,7 +89,14 @@ def count_officers(r):
         if rank == "Captain" or rank == "Commander": 
             count = count + 1
     print(f"High ranking officers: {count} ")
-     
+
+
+def display_roster(n, r, d, id):
+    print("\nNAME - RANK - DIVISION - ID")
+    print("-----------------------------------------------------")
+    for i in range(len(n)):
+        print( n[i] + " - " + r[i] + " - " + d[i] + " - " + id[i])
+    return n, r, d, id
      
 
 def main():
@@ -104,7 +109,10 @@ def main():
         elif opt == 2:
             remove_members(n, r, d, id)
         elif opt == 3:
-            update_rank(n, r, id)    
+            update_rank(n, r, id)   
+        elif opt == 4:
+            display_roster(n, r, d, id) 
+        
         
         elif opt == 8:
             count_officers(r)           
