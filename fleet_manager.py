@@ -69,7 +69,20 @@ def remove_members(n, r, d, id):
 
 
 def update_rank(n, r, id):
-     print("hello")
+    CrewID = input("What is the ID of the Crew Member who's rank needs updating:")
+
+    while CrewID not in id:
+        CrewID = input("Incorrect ID. What is the ID of the Crew Member who's rank needs updating:")
+
+    
+    idx = id.index(CrewID)
+    new_rank = input("What is the updated rank")
+    r[idx] = new_rank
+
+
+
+    
+
 
 def count_officers(r):
     print("Analyzing...")
