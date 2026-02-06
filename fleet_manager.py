@@ -12,7 +12,8 @@ def init_database():
     for i in range(len(n)):
         print( n[i] + " - " + r[i] + " - " + d[i] + " - " + id[i])
     name = input("\nWhat is your full name? ")
-    print("USER " + name + " HAS LOGGED IN...")
+    name = name.title()
+    print("\nUSER " + name + " HAS LOGGED IN...")
 
 
 def display_menu():
@@ -54,29 +55,34 @@ def add_member(n, r, d, id):
 
 def remove_members(n, r, d, id):
     rem = input("Name to remove: ")
+    rem = rem.title()
     if rem in n:           
         idx = n.index(rem)
         n.pop(idx)
         r.pop(idx)
         d.pop(idx)
         id.pop(idx)
-        print("Crew member removed")
+        print("Crew member removed.")
     else:
-        print("Name not found")
+        print("Name not found.")
     print("\nUpdated Crew List:")
     for i in range(len(n)):
             print( n[i] + " - " + r[i] + " - " + d[i] + " - " + id[i])
     return n, r, d, id
 
 
-def update_rank(n, r, d, id):
-    CrewID = input("What is the ID of the Crew Member who's rank needs updating: ")
+def update_rank(n, r, id):
+    rank = ["Captain", "Commander", "Lieutenant Commander", "Lieutenant"]
+    CrewID = input("Enter ID of the Crew Member who's rank needs updating: ")
     while CrewID not in id:
-        CrewID = input("Incorrect ID. What is the ID of the Crew Member who's rank needs updating: ")
+        CrewID = input("Incorrect ID. Enter ID of the Crew Member who's rank needs updating: ")
     idx = id.index(CrewID)
-    new_rank = input("What is the updated rank: ")
+    new_rank = input("Updated rank: ")
+    while new_rank not in rank:
+        new_rank = input("This is not a valid TNG Rank. Please enter a valid Rank: ")
+        new_rank = new_rank.title()
     r[idx] = new_rank
-    print("Rank updated")
+    print("Rank updated.")
     print("\nUpdated Crew List:")
     for i in range(len(n)):
             print( n[i] + " - " + r[i] + " - " + d[i] + " - " + id[i])
@@ -115,6 +121,12 @@ def search_crew(n, r, d, id):
 
 def filter_by_division(n, r, d, id):
     div = input("Enter the division (Command-Operations-Sciences): ")
+    div = div.title()
+    divlist = ["Command", "Operations", "Sciences"]
+    while div not in divlist:
+        div = input("Invalid division. Enter the division (Command-Operations-Sciences): ")
+        div = div.title()
+
     for i in range(len(d)):
         if div in d[i]:            
             print(n[i], "-", r[i], "-", d[i], "-", id[i])
@@ -136,7 +148,7 @@ def calculate_payroll(r):
             lie = lie + 500
 
     total = cap + com + lcom + lie
-    print(f"The total cost of the crew is £{total}")
+    print(f"Total cost of crew: £{total}")
 
 
         
