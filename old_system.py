@@ -63,7 +63,7 @@ def run_system_monolith():
             
             elif opt == "5":
                 print("Shutting down.")
-                break
+                return
             
             else:
                 print("Invalid.")
