@@ -11,11 +11,11 @@ def init_database():
     print("\nCurrent Crew List:")           
     for i in range(len(n)):
         print( n[i] + " - " + r[i] + " - " + d[i] + " - " + id[i])
+    name = input("\nWhat is your full name? ")
+    print("USER " + name + " HAS LOGGED IN...")
 
 
 def display_menu():
-    name = input("\nWhat is your full name? ")
-    print("USER " + name + " HAS LOGGED IN...")
     print("\n--- MENU ---")
     print("1. Add Member")
     print("2. Remove Member")
@@ -25,6 +25,7 @@ def display_menu():
     print("6. Filter by Division")
     print("7. Calculate Payroll")
     print("8. Count Officers")
+    print("9. Exit")
     opt = int(input("\nSelect option: "))
     return opt
 
@@ -69,13 +70,21 @@ def remove_members(n, r, d, id):
 
 def main():
     init_database()
-    opt = display_menu()
+    run = True
 
-    if opt == 1:
-        add_member(n, r, d, id)
+    while True:    
+        
+        opt = display_menu()
 
-    elif opt == 2:
-        remove_members(n, r, d, id)
+        if opt == 1:
+            add_member(n, r, d, id)
+
+        elif opt == 2:
+            remove_members(n, r, d, id)
+        
+        elif opt == 9:
+             print("Shutting down.")
+             return
         
         
 
