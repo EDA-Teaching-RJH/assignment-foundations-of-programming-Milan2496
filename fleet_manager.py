@@ -68,20 +68,33 @@ def remove_members(n, r, d, id):
     return n, r, d, id
 
 
+def update_rank(n, r, id):
+     print("hello")
+
+def count_officers(r):
+    print("Analyzing...")
+    count = 0            
+    for rank in r:
+        if rank == "Captain" or rank == "Commander": 
+            count = count + 1
+    print(f"High ranking officers: {count} ")
+     
+     
+
 def main():
     init_database()
     run = True
-
     while True:    
-        
         opt = display_menu()
-
         if opt == 1:
             add_member(n, r, d, id)
-
         elif opt == 2:
             remove_members(n, r, d, id)
+        elif opt == 3:
+            update_rank(n, r, id)    
         
+        elif opt == 8:
+            count_officers(r)           
         elif opt == 9:
              print("Shutting down.")
              return
