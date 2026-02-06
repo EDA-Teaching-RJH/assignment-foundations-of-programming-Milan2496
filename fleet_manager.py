@@ -29,6 +29,7 @@ def display_menu():
     opt = int(input("\nSelect option: "))
     return opt
 
+
 def add_member(n, r, d, id):
     rank = ["Captain", "Commander", "Lieutenant Commander", "Lieutenant"]
     new_name = input("Name: ")
@@ -68,7 +69,7 @@ def remove_members(n, r, d, id):
     return n, r, d, id
 
 
-def update_rank(n, r, id):
+def update_rank(n, r, d, id):
     CrewID = input("What is the ID of the Crew Member who's rank needs updating: ")
     while CrewID not in id:
         CrewID = input("Incorrect ID. What is the ID of the Crew Member who's rank needs updating: ")
@@ -110,9 +111,18 @@ def search_crew(n, r, d, id):
             print(n[i], "-", r[i], "-", d[i], "-", id[i])
         elif searchterm in id[i]:            
             print(n[i], "-", r[i], "-", d[i], "-", id[i])
-        
-            
 
+
+def filter_by_division(n, r, d, id):
+    div = input("Enter the division (Command-Operations-Sciences): ")
+    for i in range(len(d)):
+        if div in d[i]:            
+            print(n[i], "-", r[i], "-", d[i], "-", id[i])
+
+
+def calculate_payroll(r):
+
+        
 
 def main():
     init_database()
@@ -129,19 +139,15 @@ def main():
             display_roster(n, r, d, id) 
         elif opt == 5:
             search_crew(n, r, d, id)
-        
+        elif opt == 6:
+            filter_by_division(n, r, d, id)
+        elif opt == 7:
+            calculate_payroll(r)       
         elif opt == 8:
             count_officers(r)           
         elif opt == 9:
              print("Shutting down.")
              return
-        
-        
-
-
-        
 
 
 main()
-
-
