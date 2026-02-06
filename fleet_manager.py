@@ -97,7 +97,22 @@ def display_roster(n, r, d, id):
     for i in range(len(n)):
         print( n[i] + " - " + r[i] + " - " + d[i] + " - " + id[i])
     return n, r, d, id
-     
+
+
+def search_crew(n, r, d, id):
+    searchterm = input("Enter a search term: ")    
+    for i in range(len(n)):
+        if searchterm in n[i]:            
+            print(n[i], "-", r[i], "-", d[i], "-", id[i])
+        elif searchterm in r[i]:            
+            print(n[i], "-", r[i], "-", d[i], "-", id[i])
+        elif searchterm in d[i]:            
+            print(n[i], "-", r[i], "-", d[i], "-", id[i])
+        elif searchterm in id[i]:            
+            print(n[i], "-", r[i], "-", d[i], "-", id[i])
+        
+            
+
 
 def main():
     init_database()
@@ -112,7 +127,8 @@ def main():
             update_rank(n, r, id)   
         elif opt == 4:
             display_roster(n, r, d, id) 
-        
+        elif opt == 5:
+            search_crew(n, r, d, id)
         
         elif opt == 8:
             count_officers(r)           
