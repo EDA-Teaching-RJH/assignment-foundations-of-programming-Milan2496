@@ -121,6 +121,23 @@ def filter_by_division(n, r, d, id):
 
 
 def calculate_payroll(r):
+    cap = 0
+    com = 0
+    lcom = 0
+    lie = 0
+    for rank in r:
+        if rank == "Captain": 
+            cap = cap + 1000
+        elif rank == "Commander":
+            com = com + 800
+        elif rank == "Lieutenant Commander":
+            lcom = lcom + 700
+        elif rank == "Lieutenant":
+            lie = lie + 500
+
+    total = cap + com + lcom + lie
+    print(f"The total cost of the crew is £{total}")
+
 
         
 
