@@ -28,8 +28,8 @@ def run_system_monolith():
             if opt == "1":  
                 print("Current Crew List:")
             
-                for i in range(len(n)):
-                    print(n[i] + " - " + r[i])
+                for opt in range(len(n)):
+                    print(n[opt] + " - " + r[opt])
                 
             elif opt == "2":
                 new_name = input("Name: ")
@@ -82,13 +82,13 @@ def run_system_monolith():
                 print("Database empty.")
 
         
-            fuel = 100
-            consumption = 0
-            while fuel > 0:
+        fuel = 100
+        consumption = 0
+        while fuel > 0:
             
-                print("Idling...")
-                break 
+            print("Idling...")
+            break 
             
-            print("End of cycle.")
+        print("End of cycle.")
 
 run_system_monolith()
