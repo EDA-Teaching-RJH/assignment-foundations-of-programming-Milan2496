@@ -100,10 +100,9 @@ run_system_monolith()
 #10 distinct bugs
 #add brackets to run_system_monolith
 #change = to == in the if statement
-#stop the infinte while loop
+#stop the infinte while loop and change break to return
 #replace range(10) with range(len(n))
 #add r.append and d.append to create a new crew member because otherwise the for loop will crash
 #change print line to allow both integers and strings to be printed
-#change break to return
 #in an if statement with two options to be true then the code must be written as variable == (word) for both options
 #add an if statement for removing name because the code will crash with the wrong name inputted
